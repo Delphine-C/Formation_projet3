@@ -16,4 +16,14 @@ class ChapterManager extends PDO_Manager
 
         return $request;
     }
+
+    public function getChapter($id)
+    {
+        $db=parent::dbConnect();
+        $request=$db->prepare('SELECT * FROM chapters WHERE id=:id');
+        $request->execute([':id'=>$id]);
+
+        $donnees=$request->fetch(PDO::FETCH_ASSOC);
+        return new Chapter($donnees);
+    }
 }

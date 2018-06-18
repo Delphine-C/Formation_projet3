@@ -10,7 +10,14 @@ require('controller/backend.php');
 
 try
 {
-    if(isset($_GET['chapter'])){}
+    if(isset($_GET['chapter'])){
+        if($_GET['chapter']>0){
+            readChapter($_GET['chapter']);
+        }
+        else{
+            throw new Exception('Aucun identifiant de chapitre envoyé');
+        }
+    }
 
     // BY DEFAULT
     else{
