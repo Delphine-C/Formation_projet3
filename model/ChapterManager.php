@@ -44,4 +44,10 @@ class ChapterManager extends PDO_Manager
         $request=$db->prepare('UPDATE chapters SET title=:title,num=:num,content=:content,datepost=NOW() WHERE id=:id');
         $request->execute([':title'=>$chapter->title(),':num'=>$chapter->num(),'content'=>$chapter->content(),':id'=>$chapter->id()]);
     }
+
+    public function delete($id)
+    {
+        $db=parent::dbConnect();
+        $db->exec('DELETE FROM chapters WHERE id='.$id);
+    }
 }

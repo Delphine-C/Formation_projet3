@@ -49,3 +49,11 @@ function chapterModified($id) // save changes in the DB
 
     require('view/backend/adminView.php');
 }
+
+function deleteChapter($id)
+{
+    $chapterManager=new ChapterManager();
+    $chapterManager->delete($id);
+
+    require('view/backend/adminView.php');
+}

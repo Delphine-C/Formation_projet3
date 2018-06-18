@@ -46,6 +46,14 @@ try
             throw new Exception('Aucun identifiant de chapitre envoyé');
         }
     }
+    elseif (isset($_GET['deleteChapter'])){
+        if ($_GET['deleteChapter']>0){
+            deleteChapter($_GET['deleteChapter']);
+        }
+        else{
+            throw new Exception('Aucun identifiant de chapitre envoyé');
+        }
+    }
 
     // CONNEXION
 
