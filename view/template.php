@@ -7,6 +7,9 @@
 </head>
 
 <body>
+
+<a href="index.php?getConnexion">Connexion</a>
+
 <?= $content ?>
 </body>
 </html>

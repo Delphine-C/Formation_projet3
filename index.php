@@ -10,6 +10,8 @@ require('controller/backend.php');
 
 try
 {
+    // CHAPTERS
+
     if(isset($_GET['chapter'])){
         if($_GET['chapter']>0){
             readChapter($_GET['chapter']);
@@ -19,6 +21,14 @@ try
         }
     }
 
+    // CONNEXION
+
+    elseif (isset($_GET['getConnexion'])){
+        getConnect();
+    }
+    elseif(isset($_GET['testConnexion'])){
+        testConnect();
+    }
     // BY DEFAULT
     else{
         listChapters();
