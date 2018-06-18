@@ -27,6 +27,25 @@ try
         writeChapter();
         listChapters();
     }
+    elseif (isset($_GET['modifyChapter'])){ // choose the chapter to modify
+        modifyChapter();
+    }
+    elseif (isset($_GET['updateChapter'])){ // make changes
+        if($_GET['updateChapter']>0){
+            updateChapter($_GET['updateChapter']);
+        }
+        else{
+            throw new Exception('Aucun identifiant de chapitre envoyé');
+        }
+    }
+    elseif (isset($_GET['chaptermodified'])){ // save changes in the DB
+        if($_GET['chaptermodified']>0){
+            chapterModified($_GET['chaptermodified']);
+        }
+        else{
+            throw new Exception('Aucun identifiant de chapitre envoyé');
+        }
+    }
 
     // CONNEXION
 

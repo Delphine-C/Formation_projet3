@@ -21,3 +21,31 @@ function writeChapter()
     $chapterManager=new ChapterManager($chapter);
     $chapterManager->add($chapter);
 }
+
+function modifyChapter() // choose the chapter to modify or delete
+{
+    $chapterManager=new ChapterManager();
+    $listChapters=$chapterManager->getList();
+
+    require('view/backend/chaptersView.php');
+}
+
+function updateChapter($id) // make changes
+{
+    $chapterManager=new ChapterManager();
+    $chapter=$chapterManager->getChapter($id);
+
+    require('view/backend/updatechapterView.php');
+}
+
+function chapterModified($id) // save changes in the DB
+{
+    $chapterManager=new ChapterManager();
+    $chapter=$chapterManager->getChapter($id);
+    $chapter->setNum($_POST['num']);
+    $chapter->setTitle($_POST['title']);
+    $chapter->setContent($_POST['chapter']);
+    $chapterManager->update($chapter);
+
+    require('view/backend/adminView.php');
+}

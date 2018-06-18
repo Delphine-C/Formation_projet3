@@ -22,7 +22,8 @@ else{
 
     <h2>Gestion des chapitres</h2>
 
-    <a href="index.php?addChapter">Rédiger un nouveau chapitre</a>
+    <a href="index.php?addChapter">Rédiger un nouveau chapitre</a><br>
+    <a href="index.php?modifyChapter">Modifier un chapitre existant</a><br>
 <?php
 }
 

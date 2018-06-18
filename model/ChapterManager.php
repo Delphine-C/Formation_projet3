@@ -37,4 +37,11 @@ class ChapterManager extends PDO_Manager
         $request->bindValue(':content',$chapter->content());
         $request->execute();
     }
+
+    public function update($chapter)
+    {
+        $db=parent::dbConnect();
+        $request=$db->prepare('UPDATE chapters SET title=:title,num=:num,content=:content,datepost=NOW() WHERE id=:id');
+        $request->execute([':title'=>$chapter->title(),':num'=>$chapter->num(),'content'=>$chapter->content(),':id'=>$chapter->id()]);
+    }
 }
