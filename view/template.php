@@ -1,7 +1,12 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Delphine_Corneil
- * Date: 18/06/2018
- * Time: 11:35
- */
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title><?= $title ?></title>
+<link rel="stylesheet" href="web/css/style.css"/>
+</head>
+
+<body>
+<?= $content ?>
+</body>
+</html>
