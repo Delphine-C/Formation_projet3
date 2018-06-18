@@ -26,4 +26,15 @@ class ChapterManager extends PDO_Manager
         $donnees=$request->fetch(PDO::FETCH_ASSOC);
         return new Chapter($donnees);
     }
+
+    public function add(Chapter $chapter)
+    {
+        $db=parent::dbConnect();
+        $request=$db->prepare('INSERT INTO chapters (author,title,num,content,datepost) VALUES (:author,:title,:num,:content,NOW())');
+        $request->bindValue(':author',$chapter->author());
+        $request->bindValue(':title',$chapter->title());
+        $request->bindValue(':num',$chapter->num());
+        $request->bindValue(':content',$chapter->content());
+        $request->execute();
+    }
 }

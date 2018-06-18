@@ -20,6 +20,13 @@ try
             throw new Exception('Aucun identifiant de chapitre envoyé');
         }
     }
+    elseif(isset($_GET['addChapter'])){
+        addChapter();
+    }
+    elseif(isset($_GET['newChapter'])){
+        writeChapter();
+        listChapters();
+    }
 
     // CONNEXION
 
