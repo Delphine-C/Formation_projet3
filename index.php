@@ -55,6 +55,17 @@ try
         }
     }
 
+    // COMMENTS
+
+    elseif (isset($_GET['newcomment'])){
+        if ($_GET['newcomment']>0){
+            addComment($_GET['newcomment']);
+        }
+        else{
+            throw new Exception('Aucun identifiant de chapitre envoyé');
+        }
+    }
+
     // ACCOUNT
 
     elseif (isset($_GET['changepw'])){

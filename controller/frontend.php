@@ -9,8 +9,11 @@ require_once ('model/ChapterManager.php');
 require_once ('model/Chapter.php');
 require_once('model/User.php');
 require_once('model/UserManager.php');
+require_once ('model/CommentManager.php');
+require_once ('model/Comment.php');
 
 // CHAPTERS
+
 function listChapters()
 {
     $chapterManager=new ChapterManager();
@@ -25,6 +28,18 @@ function readChapter($id)
     $chapter=$chapterManager->getChapter($id);
 
     require('view/frontend/chapterView.php');
+}
+
+// COMMENTS
+function addComment($id)
+{
+    $comment=new Comment(['chapterid'=>$id,'author'=>$_POST['pseudo'],'content'=>$_POST['content']]);
+    $commentManager=new CommentManager();
+    $commentManager->addComment($comment);
+    $chapterManager=new ChapterManager();
+    $chapter=$chapterManager->getChapter($id);
+
+    require ('view/frontend/chapterView.php');
 }
 
 // ADMIN CONNEXION
@@ -43,5 +58,4 @@ function testConnect()
     $_SESSION['user']=$user;
 
     require('view/backend/adminView.php');
-
 }
