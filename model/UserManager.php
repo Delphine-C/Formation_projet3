@@ -39,4 +39,11 @@ class UserManager extends PDO_Manager
             return self::WRONG_USERNAME;
         }
     }
+
+    public function changePassword($password)
+    {
+        $db=parent::dbConnect();
+        $request=$db->prepare('UPDATE users SET password=:password WHERE id=:id');
+        $request->execute([':password'=>password_hash($password,PASSWORD_DEFAULT),':id'=>1]);
+    }
 }

@@ -55,6 +55,15 @@ try
         }
     }
 
+    // ACCOUNT
+
+    elseif (isset($_GET['changepw'])){
+        changePassword();
+    }
+    elseif (isset($_GET['pwsubmitted'])){
+        passwordModified($_POST['password']);
+    }
+
     // CONNEXION
 
     elseif (isset($_GET['getConnexion'])){

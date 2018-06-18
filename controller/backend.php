@@ -57,3 +57,17 @@ function deleteChapter($id)
 
     require('view/backend/adminView.php');
 }
+
+// ACCOUNT
+function changePassword()
+{
+    require ('view/backend/formpasswordView.php');
+}
+
+function passwordModified($password)
+{
+    $userManager=new UserManager();
+    $userManager->changePassword($password);
+
+    require('view/backend/adminView.php');
+}
