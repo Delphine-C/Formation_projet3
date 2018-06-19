@@ -27,6 +27,14 @@ class CommentManager extends PDO_Manager
         return $request;
     }
 
+    public function getCommentsReported()
+    {
+        $db=parent::dbConnect();
+        $request=$db->query('SELECT id,author,content,DATE_FORMAT(datepost,\'%d/%m/%Y à %H:%i:%s\') AS datepost_fr FROM comments WHERE reported=1 ORDER BY datepost');
+
+        return $request;
+    }
+
     public function reportComment($id)
     {
         $db=parent::dbConnect();
@@ -36,8 +44,21 @@ class CommentManager extends PDO_Manager
     public function countReported()
     {
         $db=parent::dbConnect();
-        $request=$db->query('SELECT COUNT(*) FROM comments WHERE reported=1');
+        $request=$db->query('SELECT COUNT(*) FROM comments WHERE reported=1')
+        ;
 
         return $request->fetchColumn();
+    }
+
+    public function validComment($id)
+    {
+        $db=parent::dbConnect();
+        $db->exec('UPDATE comments SET reported=0 WHERE id='.$id);
+    }
+
+    public function deleteComment($id)
+    {
+        $db=parent::dbConnect();
+        $db->exec('DELETE FROM comments WHERE id='.$id);
     }
 }

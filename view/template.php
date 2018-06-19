@@ -8,7 +8,7 @@
 
 <body>
 
-<a href="index.php?getConnexion">Connexion</a>
+<a href="index.php?getConnexion">Connexion</a><br>
 
 <?= $content ?>
 </body>

@@ -58,6 +58,38 @@ function deleteChapter($id)
     require('view/backend/adminView.php');
 }
 
+// COMMENTS
+
+function moderate()
+{
+    $commentManager=new CommentManager();
+    $reported=$commentManager->getCommentsReported();
+
+    require ('view/backend/commentsReportedView.php');
+}
+
+function validComment($id)
+{
+    $commentManager=new CommentManager();
+    $commentManager->validComment($id);
+
+    $commentManager=new CommentManager();
+    $count=$commentManager->countReported();
+
+    require('view/backend/adminView.php');
+}
+
+function deleteComment($id)
+{
+    $commentManager=new CommentManager();
+    $commentManager->deleteComment($id);
+
+    $commentManager=new CommentManager();
+    $count=$commentManager->countReported();
+
+    require('view/backend/adminView.php');
+}
+
 // ACCOUNT
 function changePassword()
 {

@@ -74,6 +74,25 @@ try
             throw new Exception('Aucun identifiant de chapitre envoyé');
         }
     }
+    elseif (isset($_GET['moderate'])){
+        moderate();
+    }
+    elseif (isset($_GET['validcomment'])){
+        if ($_GET['validcomment']>0){
+            validComment($_GET['validcomment']);
+        }
+        else{
+            throw new Exception('Aucun identifiant de commentaire envoyé');
+        }
+    }
+    elseif (isset($_GET['deletecomment'])){
+        if ($_GET['deletecomment']>0){
+            deleteComment($_GET['deletecomment']);
+        }
+        else{
+            throw new Exception('Aucun identifiant de commentaire envoyé');
+        }
+    }
 
     // ACCOUNT
 

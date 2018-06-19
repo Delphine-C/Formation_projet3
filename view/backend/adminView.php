@@ -26,7 +26,7 @@ else{
     <a href="index.php?modifyChapter">Modifier ou Supprimer un chapitre existant</a><br>
 
     <h2>Gestion des commentaires</h2>
-    Il y a <?php echo $count ?> commentaire(s) signalé(s).
+    Il y a <?php echo $count ?> commentaire(s) signalé(s). <a href="index.php?moderate">Modérer les commentaires</a>
 
     <h2>Gestion du compte</h2>
     <a href="index.php?changepw">Modifier mon mot de passe</a>
