@@ -15,6 +15,15 @@ ob_start(); ?>
     <br>
     <p><?= $chapter->content() ?></p>
 
+<?php
+    while($comment=$listComments->fetch())
+    {
+    echo '<p>'.$comment['author'].'<br>Posté le'.$comment['datepost_fr'].'<br>'.$comment['content'].'</p>';
+
+    }
+?>
+
+    <h2>Laisser un commentaire</h2>
     <form action="index.php?newcomment=<?= $chapter->id() ?>" method="post">
         <label>Pseudo :</label><input type="text" name="pseudo"><br>
         <label>Votre commentaire</label><br>

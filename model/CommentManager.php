@@ -18,4 +18,12 @@ class CommentManager extends PDO_Manager
         $request->bindValue(':content',$comment->content());
         $request->execute();
     }
+
+    public function getComments($numChapter)
+    {
+        $db=parent::dbConnect();
+        $request=$db->query('SELECT author,content,DATE_FORMAT(datepost,\'%d/%m/%Y à %H:%i:%s\') AS datepost_fr FROM comments WHERE chapterid='.$numChapter.' ORDER BY datepost');
+
+        return $request;
+    }
 }

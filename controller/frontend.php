@@ -26,6 +26,8 @@ function readChapter($id)
 {
     $chapterManager=new ChapterManager();
     $chapter=$chapterManager->getChapter($id);
+    $commentManager=new CommentManager();
+    $listComments=$commentManager->getComments($id);
 
     require('view/frontend/chapterView.php');
 }
@@ -38,6 +40,8 @@ function addComment($id)
     $commentManager->addComment($comment);
     $chapterManager=new ChapterManager();
     $chapter=$chapterManager->getChapter($id);
+    $commentManager=new CommentManager();
+    $listComments=$commentManager->getComments($id);
 
     require ('view/frontend/chapterView.php');
 }
