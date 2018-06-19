@@ -64,6 +64,10 @@ function moderate()
 {
     $commentManager=new CommentManager();
     $reported=$commentManager->getCommentsReported();
+    $countreported=$commentManager->countReported();
+    $unreported=$commentManager->getCommentsUnreported();
+    $countunreported=$commentManager->countUnreported();
+
 
     require ('view/backend/commentsReportedView.php');
 }

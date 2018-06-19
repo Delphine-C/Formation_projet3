@@ -35,6 +35,14 @@ class CommentManager extends PDO_Manager
         return $request;
     }
 
+    public function getCommentsUnreported()
+    {
+        $db=parent::dbConnect();
+        $request=$db->query('SELECT id,author,content,DATE_FORMAT(datepost,\'%d/%m/%Y à %H:%i:%s\') AS datepost_fr FROM comments WHERE reported=0 ORDER BY datepost');
+
+        return $request;
+    }
+
     public function reportComment($id)
     {
         $db=parent::dbConnect();
@@ -45,6 +53,15 @@ class CommentManager extends PDO_Manager
     {
         $db=parent::dbConnect();
         $request=$db->query('SELECT COUNT(*) FROM comments WHERE reported=1')
+        ;
+
+        return $request->fetchColumn();
+    }
+
+    public function countUnreported()
+    {
+        $db=parent::dbConnect();
+        $request=$db->query('SELECT COUNT(*) FROM comments WHERE reported=0')
         ;
 
         return $request->fetchColumn();
