@@ -19,11 +19,25 @@ class CommentManager extends PDO_Manager
         $request->execute();
     }
 
-    public function getComments($numChapter)
+    public function getComments($idChapter)
     {
         $db=parent::dbConnect();
-        $request=$db->query('SELECT author,content,DATE_FORMAT(datepost,\'%d/%m/%Y à %H:%i:%s\') AS datepost_fr FROM comments WHERE chapterid='.$numChapter.' ORDER BY datepost');
+        $request=$db->query('SELECT id,author,content,DATE_FORMAT(datepost,\'%d/%m/%Y à %H:%i:%s\') AS datepost_fr FROM comments WHERE chapterid='.$idChapter.' ORDER BY datepost');
 
         return $request;
+    }
+
+    public function reportComment($id)
+    {
+        $db=parent::dbConnect();
+        $db->exec('UPDATE comments SET reported=1 WHERE id='.$id);
+    }
+
+    public function countReported()
+    {
+        $db=parent::dbConnect();
+        $request=$db->query('SELECT COUNT(*) FROM comments WHERE reported=1');
+
+        return $request->fetchColumn();
     }
 }

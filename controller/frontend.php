@@ -46,6 +46,12 @@ function addComment($id)
     require ('view/frontend/chapterView.php');
 }
 
+function reportComment($id)
+{
+    $commentManager=new CommentManager();
+    $commentManager->reportComment($id);
+}
+
 // ADMIN CONNEXION
 
 function getConnect()
@@ -58,6 +64,9 @@ function testConnect()
     $user=new User(['username'=>$_POST['username'],'password'=>$_POST['password']]);
     $userManager=new UserManager();
     $testpassword=$userManager->passwordisgood($user);
+    $commentManager=new CommentManager();
+    $count=$commentManager->countReported();
+
     session_start();
     $_SESSION['user']=$user;
 

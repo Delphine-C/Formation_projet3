@@ -65,6 +65,15 @@ try
             throw new Exception('Aucun identifiant de chapitre envoyé');
         }
     }
+    elseif (isset($_GET['report']) && isset($_GET['numchapter'])){
+       if ($_GET['report']>0 && $_GET['numchapter']>0){
+            reportComment($_GET['report']);
+            readChapter($_GET['numchapter']);
+        }
+        else{
+            throw new Exception('Aucun identifiant de chapitre envoyé');
+        }
+    }
 
     // ACCOUNT
 

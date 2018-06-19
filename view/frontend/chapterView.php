@@ -18,7 +18,7 @@ ob_start(); ?>
 <?php
     while($comment=$listComments->fetch())
     {
-    echo '<p>'.$comment['author'].'<br>Posté le'.$comment['datepost_fr'].'<br>'.$comment['content'].'</p>';
+    echo '<p>'.$comment['author'].' <a href="index.php?report='.$comment['id'].'&amp;numchapter='.$chapter->id().'">Signaler le commentaire</a><br>Posté le'.$comment['datepost_fr'].'<br>'.$comment['content'].'</p>';
 
     }
 ?>

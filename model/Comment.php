@@ -14,6 +14,7 @@ class Comment extends Hydrator
     private $_author;
     private $_content;
     private $_datepost;
+    private $_reported;
 
     // GETTERS
 
@@ -57,6 +58,13 @@ class Comment extends Hydrator
         return $this->_datepost;
     }
 
+    /**
+     * @return mixed
+     */
+    public function reported()
+    {
+        return $this->_reported;
+    }
     // SETTERS
 
     /**
@@ -97,5 +105,13 @@ class Comment extends Hydrator
     public function setDatepost($datepost)
     {
         $this->_datepost = $datepost;
+    }
+
+    /**
+     * @param mixed $reported
+     */
+    public function setReported($reported)
+    {
+        $this->_reported = $reported;
     }
 }
