@@ -24,10 +24,15 @@ function testConnect()
     $commentManager=new CommentManager();
     $count=$commentManager->countReported();
 
-    session_start();
     $_SESSION['user']=$user;
 
     require('view/backend/adminView.php');
+}
+
+function deconnect()
+{
+    session_destroy();
+    unset($_SESSION);
 }
 
 function changePassword()

@@ -9,6 +9,8 @@ require ('controller/chapters.php');
 require ('controller/comments.php');
 require ('controller/users.php');
 
+session_start();
+
 try
 {
     // CHAPTERS
@@ -112,6 +114,12 @@ try
     elseif(isset($_GET['testConnexion'])){
         testConnect();
     }
+    elseif (isset($_GET['deconnexion'])){
+        deconnect();
+        listChapters();
+    }
+
+
     // BY DEFAULT
     else{
         listChapters();

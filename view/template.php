@@ -7,8 +7,19 @@
 </head>
 
 <body>
-
-<a href="index.php?getConnexion">Connexion</a><br>
+<?php
+if(isset($_SESSION['user'])){
+    ?>
+    <a href="index.php?deconnexion">Déconnexion</a>
+    <br>
+    <p>Bonjour <?= $_SESSION['user']->username() ?> !</p>
+    <?php
+}
+else{?>
+    <a href="index.php?getConnexion">Connexion</a>
+    <?php
+}
+?>
 
 <?= $content ?>
 </body>
