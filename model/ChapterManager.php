@@ -12,7 +12,7 @@ class ChapterManager extends PDO_Manager
     public function getList()
     {
         $db=parent::dbConnect();
-        $request=$db->query('SELECT id,author,title,num,DATE_FORMAT(datepost,\'%d/%m/%Y à %H:%i:%s\') AS datepost_fr FROM chapters ORDER BY num');
+        $request=$db->query('SELECT id,author,title,num,DATE_FORMAT(datepost,\'%d/%m/%Y à %H:%i:%s\') AS datepost_fr FROM chapters ORDER BY num DESC ');
 
         return $request;
     }

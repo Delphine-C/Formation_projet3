@@ -5,8 +5,9 @@
  * Date: 18/06/2018
  * Time: 11:47
  */
-require('controller/frontend.php');
-require('controller/backend.php');
+require ('controller/chapters.php');
+require ('controller/comments.php');
+require ('controller/users.php');
 
 try
 {

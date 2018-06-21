@@ -2,13 +2,30 @@
 /**
  * Created by PhpStorm.
  * User: Delphine_Corneil
- * Date: 18/06/2018
- * Time: 11:55
+ * Date: 21/06/2018
+ * Time: 09:21
  */
 require_once('model/Chapter.php');
-require_once('model/ChapterManager.php');
+require_once ('model/ChapterManager.php');
+require_once ('model/CommentManager.php');
 
-// CHAPTERS
+function listChapters()
+{
+    $chapterManager=new ChapterManager();
+    $listChapters=$chapterManager->getList();
+
+    require('view/frontend/chaptersView.php');
+}
+
+function readChapter($id)
+{
+    $chapterManager=new ChapterManager();
+    $chapter=$chapterManager->getChapter($id);
+    $commentManager=new CommentManager();
+    $listComments=$commentManager->getComments($id);
+
+    require('view/frontend/chapterView.php');
+}
 
 function addChapter()
 {
@@ -54,56 +71,6 @@ function deleteChapter($id)
 {
     $chapterManager=new ChapterManager();
     $chapterManager->delete($id);
-
-    require('view/backend/adminView.php');
-}
-
-// COMMENTS
-
-function moderate()
-{
-    $commentManager=new CommentManager();
-    $reported=$commentManager->getCommentsReported();
-    $countreported=$commentManager->countReported();
-    $unreported=$commentManager->getCommentsUnreported();
-    $countunreported=$commentManager->countUnreported();
-
-
-    require ('view/backend/commentsReportedView.php');
-}
-
-function validComment($id)
-{
-    $commentManager=new CommentManager();
-    $commentManager->validComment($id);
-
-    $commentManager=new CommentManager();
-    $count=$commentManager->countReported();
-
-    require('view/backend/adminView.php');
-}
-
-function deleteComment($id)
-{
-    $commentManager=new CommentManager();
-    $commentManager->deleteComment($id);
-
-    $commentManager=new CommentManager();
-    $count=$commentManager->countReported();
-
-    require('view/backend/adminView.php');
-}
-
-// ACCOUNT
-function changePassword()
-{
-    require ('view/backend/formpasswordView.php');
-}
-
-function passwordModified($password)
-{
-    $userManager=new UserManager();
-    $userManager->changePassword($password);
 
     require('view/backend/adminView.php');
 }
