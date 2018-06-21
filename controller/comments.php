@@ -6,7 +6,7 @@
  * Time: 09:22
  */
 require_once ('model/CommentManager.php');
-require_once ('model/Comment.php');
+require_once ('model/entities/Comment.php');
 
 function addComment($id)
 {

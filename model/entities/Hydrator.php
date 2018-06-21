@@ -15,13 +15,16 @@ abstract class Hydrator
 
     public function hydrate($donnees)
     {
-        foreach($donnees as $key => $value)
+        if(!empty($donnees))
         {
-            $method='set'.ucfirst($key);
-
-            if(method_exists($this,$method))
+            foreach($donnees as $key => $value)
             {
-                $this->$method($value);
+                $method='set'.ucfirst($key);
+
+                if(method_exists($this,$method))
+                {
+                    $this->$method($value);
+                }
             }
         }
     }

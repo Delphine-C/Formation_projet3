@@ -11,10 +11,7 @@ $title='Espace administrateur';
 ob_start();
 
 if(isset($testpassword) && $testpassword==1){
-    echo 'Erreur : Le nom d\'utilisateur n\'existe pas.';
-}
-elseif(isset($testpassword) && $testpassword==2){
-    echo 'Erreur : le mot de passe est incorrect.';
+    echo 'Erreur : Le nom d\'utilisateur n\'existe pas ou le mot de passe est incorrect.';
 }
 else{
     ?>

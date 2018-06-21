@@ -5,7 +5,7 @@
  * Date: 21/06/2018
  * Time: 09:22
  */
-require_once('model/User.php');
+require_once('model/entities/User.php');
 require_once('model/UserManager.php');
 
 function getConnect()
@@ -17,7 +17,10 @@ function testConnect()
 {
     $user=new User(['username'=>$_POST['username'],'password'=>$_POST['password']]);
     $userManager=new UserManager();
-    $testpassword=$userManager->passwordisgood($user);
+    $testuser=$userManager->passwordisgood($user);
+    $testpassword=$testuser->passwordisgood();
+
+
     $commentManager=new CommentManager();
     $count=$commentManager->countReported();
 

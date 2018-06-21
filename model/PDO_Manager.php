@@ -6,7 +6,7 @@
  * Time: 11:59
  */
 
-class PDO_Manager
+abstract class PDO_Manager
 {
     public function dbConnect()
     {

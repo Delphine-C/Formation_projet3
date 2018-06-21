@@ -5,7 +5,7 @@
  * Date: 21/06/2018
  * Time: 09:21
  */
-require_once('model/Chapter.php');
+require_once('model/entities/Chapter.php');
 require_once ('model/ChapterManager.php');
 require_once ('model/CommentManager.php');
 
