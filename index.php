@@ -28,7 +28,6 @@ try
     }
     elseif(isset($_GET['newChapter'])){
         writeChapter();
-        listChapters();
     }
     elseif (isset($_GET['modifyChapter'])){ // choose the chapter to modify
         modifyChapter();
@@ -99,6 +98,9 @@ try
 
     // ACCOUNT
 
+    elseif(isset($_GET['dashboard'])){
+        getdashboard();
+    }
     elseif (isset($_GET['changepw'])){
         changePassword();
     }

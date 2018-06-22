@@ -37,6 +37,8 @@ function writeChapter()
     $chapter=new Chapter(['author'=>'Jean Forteroche','title'=>$_POST['title'],'num'=>$_POST['num'],'content'=>$_POST['chapter'],'datepost'=>date('Y-m-d H:i:s')]);
     $chapterManager=new ChapterManager($chapter);
     $chapterManager->add($chapter);
+
+    header('Location: index.php?dashboard');
 }
 
 function modifyChapter() // choose the chapter to modify or delete
@@ -64,7 +66,7 @@ function chapterModified($id) // save changes in the DB
     $chapter->setContent($_POST['chapter']);
     $chapterManager->update($chapter);
 
-    require('view/backend/adminView.php');
+    header('Location: index.php?dashboard');
 }
 
 function deleteChapter($id)
@@ -72,5 +74,5 @@ function deleteChapter($id)
     $chapterManager=new ChapterManager();
     $chapterManager->delete($id);
 
-    require('view/backend/adminView.php');
+    header('Location: index.php?dashboard');;
 }

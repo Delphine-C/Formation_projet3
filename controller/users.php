@@ -35,6 +35,19 @@ function deconnect()
     unset($_SESSION);
 }
 
+function getdashboard()
+{
+    if(isset($_SESSION['user'])){
+        $commentManager=new CommentManager();
+        $count=$commentManager->countReported();
+
+        require ('view/backend/adminView.php');
+    }
+    else{
+        require ('view/error404.php');
+    }
+}
+
 function changePassword()
 {
     require ('view/backend/formpasswordView.php');
@@ -45,5 +58,5 @@ function passwordModified($password)
     $userManager=new UserManager();
     $userManager->changePassword($password);
 
-    require('view/backend/adminView.php');
+    header('Location: index.php?dashboard');;
 }

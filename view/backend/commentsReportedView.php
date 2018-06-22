@@ -39,8 +39,11 @@ if($countunreported>0)
 else{
     echo 'Aucun commentaires.';
 }
+?>
+<br>
+<a href="index.php?dashboard">Revenir au tableau de bord</a>
 
-
+<?php
 $content=ob_get_clean();
 require('view/template.php');
 ?>
