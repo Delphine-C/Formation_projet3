@@ -17,7 +17,10 @@ while($chapter=$listChapters->fetch())
 {
     echo 'Chapitre n° '. $chapter['num'] .' - '. $chapter['title'] .' <a href="index?updateChapter=' . $chapter['id'] . '">Modifier ce chapitre</a> ou <a href="index?deleteChapter=' . $chapter['id'] . '">Supprimer ce chapitre</a><br/>';
 }
-
+?>
+    <br>
+    <a href="index.php?dashboard">Revenir au tableau de bord</a>
+<?php
 $content=ob_get_clean();
 require('view/template.php');
 ?>

@@ -26,7 +26,7 @@ ob_start(); ?>
         <label>Votre chapitre</label><textarea name="chapter" class="onlyarea"></textarea><br>
         <input type="submit" value="Publier">
     </form>
-
+    <a href="index.php?dashboard">Revenir au tableau de bord</a>
 
 <?
 $content=ob_get_clean();
