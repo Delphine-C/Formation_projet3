@@ -61,7 +61,7 @@ class CommentManager extends PDO_Manager
     public function countUnreported()
     {
         $db=parent::dbConnect();
-        $request=$db->query('SELECT COUNT(*) FROM comments WHERE reported=0')s;
+        $request=$db->query('SELECT COUNT(*) FROM comments WHERE reported=0');
 
         return $request->fetchColumn();
     }

@@ -26,7 +26,7 @@ function readChapter($id)
 
     if(is_null($chapter->id())){
         throw new Exception('Aucun identifiant de chapitre envoyé');
-    }s
+    }
     else{
         require('view/frontend/chapterView.php');
     }

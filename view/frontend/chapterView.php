@@ -18,7 +18,7 @@ $siteKey = '6Lf1aGAUAAAAAAc6Md8lde8nRRWQFYCyOlzKrhZw'; // votre clé publique
 ob_start(); ?>
 
     <h1>Chapitre <?= $chapter->num() ?></h1>
-    <h2><?= $chapter->title() ?></h2>s<br>
+    <h2><?= $chapter->title() ?></h2><br>
     <p><?= $chapter->content() ?></p>
 
 <?php
