@@ -24,7 +24,12 @@ function readChapter($id)
     $commentManager=new CommentManager();
     $listComments=$commentManager->getComments($id);
 
-    require('view/frontend/chapterView.php');
+    if(is_null($chapter->id())){
+        throw new Exception('Aucun identifiant de chapitre envoyé');
+    }s
+    else{
+        require('view/frontend/chapterView.php');
+    }
 }
 
 function addChapter()
@@ -54,7 +59,12 @@ function updateChapter($id) // make changes
     $chapterManager=new ChapterManager();
     $chapter=$chapterManager->getChapter($id);
 
-    require('view/backend/updatechapterView.php');
+    if(is_null($chapter->id())){
+        throw new Exception('Aucun identifiant de chapitre envoyé');
+    }
+    else{
+        require('view/backend/updatechapterView.php');
+    }
 }
 
 function chapterModified($id) // save changes in the DB

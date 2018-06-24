@@ -20,7 +20,6 @@ function testConnect()
     $testuser=$userManager->passwordisgood($user);
     $testpassword=$testuser->passwordisgood();
 
-
     $commentManager=new CommentManager();
     $count=$commentManager->countReported();
 
@@ -58,5 +57,5 @@ function passwordModified($password)
     $userManager=new UserManager();
     $userManager->changePassword($password);
 
-    header('Location: index.php?dashboard');;
+    header('Location: index.php?dashboard');
 }

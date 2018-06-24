@@ -18,7 +18,13 @@ function addComment($id)
     $commentManager=new CommentManager();
     $listComments=$commentManager->getComments($id);
 
-    require ('view/frontend/chapterView.php');
+    if(is_null($chapter->id())){
+        throw new Exception('Aucun identifiant de chapitre envoyé');
+    }
+    else{
+        require ('view/frontend/chapterView.php');
+    }
+
 }
 
 function reportComment($id)
@@ -35,7 +41,6 @@ function moderate()
     $unreported=$commentManager->getCommentsUnreported();
     $countunreported=$commentManager->countUnreported();
 
-
     require ('view/backend/commentsReportedView.php');
 }
 
@@ -43,20 +48,10 @@ function validComment($id)
 {
     $commentManager=new CommentManager();
     $commentManager->validComment($id);
-
-    $commentManager=new CommentManager();
-    $count=$commentManager->countReported();
-
-    require('view/backend/adminView.php');
 }
 
 function deleteComment($id)
 {
     $commentManager=new CommentManager();
     $commentManager->deleteComment($id);
-
-    $commentManager=new CommentManager();
-    $count=$commentManager->countReported();
-
-    require('view/backend/adminView.php');
 }

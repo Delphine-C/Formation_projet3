@@ -16,12 +16,7 @@ try
     // CHAPTERS
 
     if(isset($_GET['chapter'])){
-        if($_GET['chapter']>0){
-            readChapter($_GET['chapter']);
-        }
-        else{
-            throw new Exception('Aucun identifiant de chapitre envoyé');
-        }
+        readChapter($_GET['chapter']);
     }
     elseif(isset($_GET['addChapter'])){
         addChapter();
@@ -33,67 +28,34 @@ try
         modifyChapter();
     }
     elseif (isset($_GET['updateChapter'])){ // make changes
-        if($_GET['updateChapter']>0){
-            updateChapter($_GET['updateChapter']);
-        }
-        else{
-            throw new Exception('Aucun identifiant de chapitre envoyé');
-        }
+        updateChapter($_GET['updateChapter']);
     }
     elseif (isset($_GET['chaptermodified'])){ // save changes in the DB
-        if($_GET['chaptermodified']>0){
-            chapterModified($_GET['chaptermodified']);
-        }
-        else{
-            throw new Exception('Aucun identifiant de chapitre envoyé');
-        }
+        chapterModified($_GET['chaptermodified']);
     }
     elseif (isset($_GET['deleteChapter'])){
-        if ($_GET['deleteChapter']>0){
-            deleteChapter($_GET['deleteChapter']);
-        }
-        else{
-            throw new Exception('Aucun identifiant de chapitre envoyé');
-        }
+        deleteChapter($_GET['deleteChapter']);
     }
 
     // COMMENTS
 
     elseif (isset($_GET['newcomment'])){
-        if ($_GET['newcomment']>0){
-            addComment($_GET['newcomment']);
-        }
-        else{
-            throw new Exception('Aucun identifiant de chapitre envoyé');
-        }
+        addComment($_GET['newcomment']);
     }
     elseif (isset($_GET['report']) && isset($_GET['numchapter'])){
-       if ($_GET['report']>0 && $_GET['numchapter']>0){
-            reportComment($_GET['report']);
-            readChapter($_GET['numchapter']);
-        }
-        else{
-            throw new Exception('Aucun identifiant de chapitre envoyé');
-        }
+        reportComment($_GET['report']);
+        readChapter($_GET['numchapter']);
     }
     elseif (isset($_GET['moderate'])){
         moderate();
     }
     elseif (isset($_GET['validcomment'])){
-        if ($_GET['validcomment']>0){
-            validComment($_GET['validcomment']);
-        }
-        else{
-            throw new Exception('Aucun identifiant de commentaire envoyé');
-        }
+        validComment($_GET['validcomment']);
+        moderate();
     }
     elseif (isset($_GET['deletecomment'])){
-        if ($_GET['deletecomment']>0){
-            deleteComment($_GET['deletecomment']);
-        }
-        else{
-            throw new Exception('Aucun identifiant de commentaire envoyé');
-        }
+        deleteComment($_GET['deletecomment']);
+        moderate();
     }
 
     // ACCOUNT
@@ -121,8 +83,8 @@ try
         listChapters();
     }
 
-
     // BY DEFAULT
+
     else{
         listChapters();
     }
