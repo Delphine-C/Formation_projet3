@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title><?= $title ?></title>
-<link rel="stylesheet" href="web/css/style.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <!--[if lte IE 8]><script src="web/js/html5shiv.js"></script><![endif]-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="web/js/skel.min.js"></script>
+    <script src="web/js/skel-panels.min.js"></script>
+    <script src="web/js/init.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="web/css/skel-noscript.css" />
+        <link rel="stylesheet" href="web/css/style.css" />
+    </noscript>
 </head>
 
 <body>
-<?php
-if(isset($_SESSION['user'])){
+    <?php
+    require('view/header.php');
     ?>
-    <a href="index.php?deconnexion">Déconnexion</a>
-    <br>
-    <p>Bonjour <?= $_SESSION['user']->username() ?> !</p>
-    <?php
-}
-else{?>
-    <a href="index.php?getConnexion">Connexion</a>
-    <?php
-}
-?>
 
-<?= $content ?>
+    <div id="main">
+        <?= $content ?>
+    </div>
 </body>
+
 </html>

@@ -5,6 +5,7 @@
  * Date: 18/06/2018
  * Time: 13:41
  */
+
 $title='Connexion';
 
 ob_start(); ?>
@@ -18,7 +19,7 @@ ob_start(); ?>
     </form>
     <br>
     <a href="index.php">Revenir à la liste des chapitres</a>
-<?
+<?php
 $content=ob_get_clean();
 require('view/template.php');
 ?>
