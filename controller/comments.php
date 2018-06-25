@@ -10,21 +10,37 @@ require_once ('model/entities/Comment.php');
 
 function addComment($id)
 {
-    $comment=new Comment(['chapterid'=>$id,'author'=>$_POST['pseudo'],'content'=>$_POST['content']]);
-    $commentManager=new CommentManager();
-    $commentManager->addComment($comment);
-    $chapterManager=new ChapterManager();
-    $chapter=$chapterManager->getChapter($id);
-    $commentManager=new CommentManager();
-    $listComments=$commentManager->getComments($id);
+    // Test recaptcha
+    $secret = '6Lf1aGAUAAAAAAOeINC1KCntr_yyOcYqFyM1eWPl'; // votre clé privée
+    $response = $_POST['g-recaptcha-response'];// Paramètre renvoyé par le recaptcha
+    $remoteip = $_SERVER['REMOTE_ADDR'];// On récupère l'IP de l'utilisateur
 
-    if(is_null($chapter->id())){
-        throw new Exception('Aucun identifiant de chapitre envoyé');
-    }
-    else{
-        require ('view/frontend/chapterView.php');
-    }
+    $api_url = "https://www.google.com/recaptcha/api/siteverify?secret="
+        . $secret
+        . "&response=" . $response
+        . "&remoteip=" . $remoteip ;
 
+    $decode = json_decode(file_get_contents($api_url), true);
+
+    if ($decode['success'] == true) {
+        $comment=new Comment(['chapterid'=>$id,'author'=>$_POST['pseudo'],'content'=>$_POST['content']]);
+        $commentManager=new CommentManager();
+        $commentManager->addComment($comment);
+        $chapterManager=new ChapterManager();
+        $chapter=$chapterManager->getChapter($id);
+        $commentManager=new CommentManager();
+        $listComments=$commentManager->getComments($id);
+
+        if(is_null($chapter->id())){
+            throw new Exception('Aucun identifiant de chapitre envoyé');
+        }
+        else{
+            require ('view/frontend/chapterView.php');
+        }
+    }
+    else {
+        echo 'Erreur: Bad robot !';
+    }
 }
 
 function reportComment($id)
@@ -48,10 +64,14 @@ function validComment($id)
 {
     $commentManager=new CommentManager();
     $commentManager->validComment($id);
+
+    moderate();
 }
 
 function deleteComment($id)
 {
     $commentManager=new CommentManager();
     $commentManager->deleteComment($id);
+
+    moderate();
 }

@@ -33,37 +33,11 @@ ob_start(); ?>
     <form action="index.php?newcomment=<?= $chapter->id() ?>" method="post">
         <label>Pseudo :</label><input type="text" name="pseudo"><br>
         <label>Votre commentaire</label><br>
-        <textarea name="content"></textarea><br>
-        <div class="g-recaptcha" data-sitekey="<?php echo $siteKey; ?>"></div>
+        <textarea name="content"></textarea><br><br>
+        <div class="g-recaptcha" data-sitekey="<?= $siteKey; ?>"></div><br>
         <input type="submit" value="Publier">
     </form>
-<?php
-// Ma clé privée
-$secret = '6Lf1aGAUAAAAAAOeINC1KCntr_yyOcYqFyM1eWPl'; // votre clé privée
-// Paramètre renvoyé par le recaptcha
-$response = $_POST['g-recaptcha-response'];
-// On récupère l'IP de l'utilisateur
-$remoteip = $_SERVER['REMOTE_ADDR'];
 
-$api_url = "https://www.google.com/recaptcha/api/siteverify?secret="
-    . $secret
-    . "&response=" . $response
-    . "&remoteip=" . $remoteip ;
-
-$decode = json_decode(file_get_contents($api_url), true);
-
-if ($decode['success'] == true) {
-    // C'est un humain
-    ?>
-
-    <?php
-}
-
-else {
-    // C'est un robot ou le code de vérification est incorrecte
-}
-
-?>
     <a href="index.php">Revenir à la liste des chapitres</a>
 
 <?

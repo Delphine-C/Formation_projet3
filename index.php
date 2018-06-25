@@ -51,11 +51,9 @@ try
     }
     elseif (isset($_GET['validcomment'])){
         validComment($_GET['validcomment']);
-        moderate();
     }
     elseif (isset($_GET['deletecomment'])){
         deleteComment($_GET['deletecomment']);
-        moderate();
     }
 
     // ACCOUNT
