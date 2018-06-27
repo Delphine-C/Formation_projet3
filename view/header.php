@@ -20,19 +20,20 @@
         <!-- Nav -->
         <nav id="nav">
             <ul>
-                <li class="active"><a href="index.php">Accueil</a></li>
-                <li><a href="#">Lire le livre</a></li>
-                <li><a href="#">A propos</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Accueil</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-book"></span> Lire le livre</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-info-sign"></span> A propos</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
                 <li>
                     <?php
                     if(isset($_SESSION['user'])){
                         ?>
-                        <a href="index.php?deconnexion">Déconnexion</a>
+                    <a href="index.php?dashboard"><span class="glyphicon glyphicon-wrench"></span> Tableau de bord</a></li>
+                    <li><a href="index.php?deconnexion"><span class="glyphicon glyphicon-user"></span> Déconnexion</a>
                         <?php
                     }
                     else{?>
-                        <a href="index.php?getConnexion">Connexion</a>
+                        <a href="index.php?getConnexion"><span class="glyphicon glyphicon-user"></span> Connexion</a>
                         <?php
                     }
                     ?>
