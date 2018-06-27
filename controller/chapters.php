@@ -9,6 +9,14 @@ require_once('model/entities/Chapter.php');
 require_once ('model/ChapterManager.php');
 require_once ('model/CommentManager.php');
 
+function home()
+{
+    $chapterManager=new ChapterManager();
+    $chapters=$chapterManager->listHome();
+
+    require ('view/frontend/home.php');
+}
+
 function listChapters()
 {
     $chapterManager=new ChapterManager();

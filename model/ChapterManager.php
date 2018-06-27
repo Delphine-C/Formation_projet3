@@ -9,6 +9,14 @@ require_once ('PDO_Manager.php');
 
 class ChapterManager extends PDO_Manager
 {
+    public function listHome()
+    {
+        $db=parent::dbConnect();
+        $request=$db->query('SELECT id,title,num FROM chapters ORDER BY num DESC LIMIT 4');
+
+        return $request;
+    }
+
     public function getList()
     {
         $db=parent::dbConnect();

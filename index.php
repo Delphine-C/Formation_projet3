@@ -18,6 +18,9 @@ try
     if(isset($_GET['chapter'])){
         readChapter($_GET['chapter']);
     }
+    elseif (isset($_GET['chapters'])){
+        listChapters();
+    }
     elseif(isset($_GET['addChapter'])){
         addChapter();
     }
@@ -84,7 +87,7 @@ try
     // BY DEFAULT
 
     else{
-        listChapters();
+        home();
     }
 }
 catch(Exception $e)
