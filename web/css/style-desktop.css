@@ -151,7 +151,7 @@
 
 	#main
 	{
-		padding: 6em 0em;
+		padding: 3em 0em;
 	}
 
 	.divider
@@ -177,6 +177,13 @@
 	{
 		font-size: 2em;
 	}
+
+	.row h3 {font-size: 2em}
+	header h2, .row h3, .row p {text-align: center}
+	header h2 { padding-bottom: 0.5em}
+	.row h3 {margin-top: -3em;margin-bottom: 2em}
+	.row p { font-size: 1.2em}
+	.button {width: 100%; text-align: center;background-color: #616161}
 
 /*********************************************************************************/
 /* Footer                                                                        */
