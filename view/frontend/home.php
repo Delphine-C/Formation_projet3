@@ -18,7 +18,7 @@ ob_start(); ?>
         {?>
         <div class="3u">
             <section>
-                <a href="#" class="image full"><img src="web/images/alaska-ice-mountains.jpg" alt="skiers" /></a>
+                <a href="?chapter=<?=  $chapter['id'] ?>" class="image full"><img src="web/images/alaska-ice-mountains.jpg" alt="skiers" /></a>
                 <h3>Chapitre <?= $chapter['num'] ?></h3>
                 <p><?= $chapter['title'] ?></p>
                 <a href="?chapter=<?=  $chapter['id'] ?>" class="button">Lire le chapitre</a>

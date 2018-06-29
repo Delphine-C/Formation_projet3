@@ -16,7 +16,7 @@ ob_start(); ?>
 
 while($chapter=$listChapters->fetch())
 {
-    echo '<a href="?chapter=' . $chapter['id'] . '">Chapitre n° ' . $chapter['num'] . ' - ' . $chapter['title'] . ', publié le ' . $chapter['datepost_fr'] . ' par ' . $chapter['author'] . '</a><br/><br>';
+    echo '<h3><a href="?chapter=' . $chapter['id'] . '">Chapitre n° ' . $chapter['num'] . ' - ' . $chapter['title'] . ', publié le ' . $chapter['datepost_fr'] . ' par ' . $chapter['author'] . '</a></h3><br/><br>';
 
 }
 

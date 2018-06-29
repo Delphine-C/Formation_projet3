@@ -26,6 +26,12 @@
     <div id="main">
         <?= $content ?>
     </div>
+
+    <footer>
+        <div id="footer">
+            Tous droits réservés.
+        </div>
+    </footer>
 </body>
 
 </html>
