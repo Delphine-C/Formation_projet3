@@ -8,8 +8,9 @@
 $title='Chapitres disponibles';
 
 ob_start(); ?>
-
-    <h1>Voici les chapitres disponibles :</h1>
+    <header>
+        <h2>Tous les chapitres disponibles :</h2>
+    </header>
 
 <?php
 

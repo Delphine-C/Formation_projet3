@@ -70,6 +70,9 @@ try
     elseif (isset($_GET['pwsubmitted'])){
         passwordModified($_POST['password']);
     }
+    elseif (isset($_GET['contact'])){
+        contact();
+    }
 
     // CONNEXION
 

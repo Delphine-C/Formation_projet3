@@ -59,3 +59,8 @@ function passwordModified($password)
 
     header('Location: index.php?dashboard');
 }
+
+function contact()
+{
+    require ('view/frontend/contact.php');
+}
