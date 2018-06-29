@@ -15,18 +15,25 @@ if(isset($testpassword) && $testpassword==1){
 }
 else{
     ?>
-    <h1>Bienvenue dans votre espace d'administration !</h1>
+    <header>
+        <h2>Bienvenue dans votre espace d'administration !</h2>
+    </header>
 
-    <h2>Gestion des chapitres</h2>
+        <div class="jumbotron">
+            <h2>Gestion des chapitres</h2>
+            <a href="index.php?addChapter">Rédiger un nouveau chapitre</a><br>
+            <a href="index.php?modifyChapter">Modifier ou Supprimer un chapitre existant</a><br>
+        </div>
 
-    <a href="index.php?addChapter">Rédiger un nouveau chapitre</a><br>
-    <a href="index.php?modifyChapter">Modifier ou Supprimer un chapitre existant</a><br>
+        <div class="jumbotron">
+          <h2>Gestion des commentaires</h2>
+            Il y a <?php echo $count ?> commentaire(s) signalé(s). <a href="index.php?moderate">Modérer les commentaires</a>
+        </div>
 
-    <h2>Gestion des commentaires</h2>
-    Il y a <?php echo $count ?> commentaire(s) signalé(s). <a href="index.php?moderate">Modérer les commentaires</a>
-
-    <h2>Gestion du compte</h2>
-    <a href="index.php?changepw">Modifier mon mot de passe</a>
+        <div class="jumbotron">
+            <h2>Gestion du compte</h2>
+            <a href="index.php?changepw">Modifier mon mot de passe</a>
+        </div>
 <?php
 }
 

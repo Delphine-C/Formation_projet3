@@ -114,7 +114,9 @@
 	{
 		clear: both;
 	}
-	
+
+	form {text-align: center}
+	input{margin-bottom: 0.5em}
 	/* Buttons */
 		
 		.button
@@ -151,6 +153,8 @@
 		{
 			margin-bottom: 3em;
 		}
+
+		#chapters h3{text-align: center}
 		
 		section > :last-child,
 		article > :last-child
@@ -169,6 +173,8 @@
 		{
 			margin-bottom: 0;
 		}
+		.row h3, .row p {text-align: center}
+		.row h3 {margin-top: -3em;margin-bottom: 2em}
 
 	/* Images */
 
@@ -306,6 +312,8 @@
 		overflow: hidden;
 		border-top: 1px solid #dbdbdb;
 	}
+
+	.jumbotron{text-align: center}
 
 /*********************************************************************************/
 /* Footer                                                                        */

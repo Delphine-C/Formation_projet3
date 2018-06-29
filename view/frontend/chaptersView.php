@@ -12,14 +12,15 @@ ob_start(); ?>
         <h2>Tous les chapitres disponibles :</h2>
     </header>
 
+<section id="chapters">
 <?php
-
 while($chapter=$listChapters->fetch())
 {
     echo '<h3><a href="?chapter=' . $chapter['id'] . '">Chapitre n° ' . $chapter['num'] . ' - ' . $chapter['title'] . ', publié le ' . $chapter['datepost_fr'] . ' par ' . $chapter['author'] . '</a></h3><br/><br>';
 
-}
-
+} ?>
+</section>
+<?php
 $content=ob_get_clean();
 require('view/template.php');
 ?>

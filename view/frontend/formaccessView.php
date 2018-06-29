@@ -9,16 +9,17 @@
 $title='Connexion';
 
 ob_start(); ?>
+    <header>
+        <h2>Connexion à l'espace administrateur</h2>
+    </header>
 
-    <h1>Connexion à l'espace administrateur</h1>
-
-    <form action="index.php?testConnexion" method="post">
-        Utilisateur <input type="text" name="username"><br>
-        Mot de passe <input type="password" name="password"><br>
-        <input type="submit" value="Connexion">
-    </form>
-    <br>
-    <a href="index.php">Revenir à la liste des chapitres</a>
+    <div class="container">
+        <form action="index.php?testConnexion" method="post" class="col-lg-4 col-lg-push-4">
+            Utilisateur <input type="text" name="username" class="form-control"><br>
+            Mot de passe <input type="password" name="password" class="form-control"><br>
+            <input type="submit" value="Connexion">
+        </form>
+    </div>
 <?php
 $content=ob_get_clean();
 require('view/template.php');

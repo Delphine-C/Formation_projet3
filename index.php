@@ -84,7 +84,7 @@ try
     }
     elseif (isset($_GET['deconnexion'])){
         deconnect();
-        listChapters();
+        home();
     }
 
     // BY DEFAULT

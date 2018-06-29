@@ -251,7 +251,13 @@
 	#sidebar h2
 	{
 	}
-	
+
+	.row h3 {
+		margin-top: -4em;
+		margin-bottom: 2.5em;
+		font-size:2em }
+
+	#chapters h3 {font-size: 1em}
 
 /*********************************************************************************/
 /* Featured                                                                      */

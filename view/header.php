@@ -13,7 +13,8 @@
 
         <!-- Logo -->
         <div id="logo">
-            <h1><a href="#">Billet simple pour l'alaska</a></h1>
+            <h1><a href="index.php
+">Billet simple pour l'alaska</a></h1>
             <span>Par Jean Forteroche, écrivain et acteur</span>
         </div>
 
