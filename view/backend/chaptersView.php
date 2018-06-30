@@ -8,18 +8,19 @@
 $title='Chapitres à modifier';
 
 ob_start(); ?>
+<header>
+    <h2>Chapitres existants</h2>
+</header>
 
-    <h1>Voici les chapitres existantss :</h1>
-
+<table class="table">
 <?php
-
 while($chapter=$listChapters->fetch())
 {
-    echo 'Chapitre n° '. $chapter['num'] .' - '. $chapter['title'] .' <a href="index?updateChapter=' . $chapter['id'] . '">Modifier ce chapitre</a> ou <a href="index?deleteChapter=' . $chapter['id'] . '">Supprimer ce chapitre</a><br/>';
+    echo '<tr><td>Chapitre n° '. $chapter['num'] .' - '. $chapter['title'] .'</td><td><a href="index?updateChapter=' . $chapter['id'] . '">Modifier ce chapitre</a> ou <a href="index?deleteChapter=' . $chapter['id'] . '">Supprimer ce chapitre</a></td></tr>';
 }
 ?>
-    <br>
-    <a href="index.php?dashboard">Revenir au tableau de bord</a>
+</table>
+
 <?php
 $content=ob_get_clean();
 require('view/template.php');

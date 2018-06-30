@@ -313,7 +313,12 @@
 		border-top: 1px solid #dbdbdb;
 	}
 
-	.jumbotron{text-align: center}
+	.jumbotron{text-align: center;padding: 1.5em 0em}
+	.jumbotron h3 {font-size:1.5em; margin-bottom: 0.5em}
+    .table{width:auto;margin: auto}
+    .table > tbody > tr> td {border-top:none}
+    .moderate{ font-size:1.5em;text-align: center;margin-bottom: 1em}
+    .moderate2{margin-top:1em}
 
 /*********************************************************************************/
 /* Footer                                                                        */
