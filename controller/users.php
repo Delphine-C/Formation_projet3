@@ -20,10 +20,12 @@ function testConnect()
     $testuser=$userManager->passwordisgood($user);
     $testpassword=$testuser->passwordisgood();
 
-    $commentManager=new CommentManager();
-    $count=$commentManager->countReported();
+    if(isset($testpassword) && $testpassword==2){
+        $commentManager=new CommentManager();
+        $count=$commentManager->countReported();
 
-    $_SESSION['user']=$user;
+        $_SESSION['user']=$user;
+    }
 
     require('view/backend/adminView.php');
 }
