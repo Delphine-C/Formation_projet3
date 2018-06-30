@@ -184,7 +184,8 @@
 	.row h3 {margin-top: -3em;margin-bottom: 2em}
 	.row p { font-size: 1.2em}
 	.button {width: 100%; text-align: center;background-color: #616161}
-
+	#portrait{border-radius:100px;float :left; margin: 3em 3em ; vertical-align: auto}
+	.row > section > p {text-align: justify}
 /*********************************************************************************/
 /* Footer                                                                        */
 /*********************************************************************************/

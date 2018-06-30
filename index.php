@@ -8,6 +8,7 @@
 require ('controller/chapters.php');
 require ('controller/comments.php');
 require ('controller/users.php');
+require ('controller/pages.php');
 
 session_start();
 
@@ -85,6 +86,12 @@ try
     elseif (isset($_GET['deconnexion'])){
         deconnect();
         home();
+    }
+
+    // ABOUT
+
+    elseif (isset($_GET['about'])){
+        about();
     }
 
     // BY DEFAULT
