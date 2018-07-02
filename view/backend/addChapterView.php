@@ -20,10 +20,10 @@ $title='Nouveau chapitre';
 
 ob_start(); ?>
 
-    <form action="nouveau-chapitre-enregistre" method="post">
-        <label>Numéro de chapitre</label><input type="text" name="num"><br>
-        <label>Titre du chapitre</label><input type="text" name="title"><br>
-        <label>Votre chapitre</label><textarea name="chapter" class="onlyarea"></textarea><br>
+    <form action="nouveau-chapitre-enregistre" method="post" class="form-admin">
+        <label>Numéro de chapitre</label><input type="text" name="num" class="form-control"><br>
+        <label>Titre du chapitre</label><input type="text" name="title" class="form-control"><br>
+        <label>Votre chapitre</label><textarea name="chapter" class="onlyarea form-control"></textarea><br>
         <input type="submit" value="Publier">
     </form>
 

@@ -321,7 +321,7 @@
     .moderate2{margin-top:1em}
 	.row > section > p {text-align: justify}
 	#chapter {width:90%;margin: auto;text-align: justify;}
-
+	#skel-panels-defaultWrapper{height: 0%!important}
 /*********************************************************************************/
 /* Footer                                                                        */
 /*********************************************************************************/

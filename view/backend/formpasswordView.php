@@ -12,8 +12,8 @@ ob_start();
     <header>
     <h2>Veuillez renseigner votre nouveau mot de passe</h2>
     </header>
-    <form action="mot-de-passe-modifie" method="post">
-        <label>Nouveau mot de passe : </label> <input type="password" name="password">
+    <form action="mot-de-passe-modifie" method="post" id="form-pw">
+        <label>Nouveau mot de passe </label> <input type="password" name="password" class="form-control">
         <input type="submit" value="Sauvegarder">
     </form><br>
 <?php
