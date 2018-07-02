@@ -20,13 +20,12 @@ $title='Nouveau chapitre';
 
 ob_start(); ?>
 
-    <form action="index.php?newChapter" method="post">
+    <form action="nouveau-chapitre-enregistre" method="post">
         <label>Numéro de chapitre</label><input type="text" name="num"><br>
         <label>Titre du chapitre</label><input type="text" name="title"><br>
         <label>Votre chapitre</label><textarea name="chapter" class="onlyarea"></textarea><br>
         <input type="submit" value="Publier">
     </form>
-    <a href="index.php?dashboard">Revenir au tableau de bord</a>
 
 <?
 $content=ob_get_clean();

@@ -47,6 +47,11 @@ class CommentManager extends PDO_Manager
     {
         $db=parent::dbConnect();
         $db->exec('UPDATE comments SET reported=1 WHERE id='.$id);
+
+        $request=$db->query('SELECT * FROM comments WHERE id='.$id);
+
+        $donnees=$request->fetch(PDO::FETCH_ASSOC);
+        return new Comment($donnees);
     }
 
     public function countReported()

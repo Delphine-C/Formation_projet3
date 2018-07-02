@@ -9,7 +9,7 @@ session_start();
 
 require_once ('Router.php');
 
-$_SESSION['arg']=explode("=",$_GET['r'],2);
+$_SESSION['arg']=explode(".",$_GET['r'],2);
 
 $request= (!empty($_GET['r'])) ? $_SESSION['arg'][0] : 'accueil';
 

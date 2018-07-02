@@ -7,6 +7,7 @@
  */
 require_once ('model/CommentManager.php');
 require_once ('model/entities/Comment.php');
+require_once ('controller/ChaptersController.php');
 
 class CommentsController
 {
@@ -45,10 +46,12 @@ class CommentsController
         }
     }
 
-    public function reportComment($id)
+    public function reportComment()
     {
         $commentManager=new CommentManager();
-        $commentManager->reportComment($id);
+        $comment=$commentManager->reportComment($_SESSION['arg'][1]);
+        $chapters=new ChaptersController();
+        $chapters->readChapter($comment->chapterid());
     }
 
     public function moderate()
@@ -62,16 +65,18 @@ class CommentsController
         require ('view/backend/commentsReportedView.php');
     }
 
-    public function validComment($id)
+    public function validComment()
     {
+        $id=$_SESSION['arg'][1];
         $commentManager=new CommentManager();
         $commentManager->validComment($id);
 
         $this->moderate();
     }
 
-    public function deleteComment($id)
+    public function deleteComment()
     {
+        $id=$_SESSION['arg'][1];
         $commentManager=new CommentManager();
         $commentManager->deleteComment($id);
 

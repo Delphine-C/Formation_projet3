@@ -18,7 +18,7 @@ class Router
         'chapitre'=>['controller'=>'ChaptersController','method'=>'readChapter'],
         'chapitres'=>['controller'=>'ChaptersController','method'=>'listChapters'],
         'rediger-un-chapitre'=>['controller'=>'ChaptersController','method'=>'addChapter'],
-        'nouveau-chapitre-enregistre'=>['controller'=>'ChaptersControllers','method'=>'writeChapter'],
+        'nouveau-chapitre-enregistre'=>['controller'=>'ChaptersController','method'=>'writeChapter'],
         'modifier-un-chapitre'=>['controller'=>'ChaptersController','method'=>'modifyChapter'],
         'modifier-le-chapitre'=>['controller'=>'ChaptersController','method'=>'updateChapter'],
         'chapitre-modifie'=>['controller'=>'ChaptersController','method'=>'chapterModified'],

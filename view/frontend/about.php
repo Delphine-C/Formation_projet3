@@ -5,7 +5,7 @@
  * Date: 30/06/2018
  * Time: 15:11
  */
-$title='Contact';
+$title='A propos de Jean Forteroche';
 
 ob_start(); ?>
     <header>

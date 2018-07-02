@@ -27,8 +27,12 @@ class ChaptersController
         require('view/frontend/chaptersView.php');
     }
 
-    public function readChapter($id)
+    public function readChapter($id=null)
     {
+        if(is_null($id)){
+            $id=$_SESSION['arg'][1];
+        }
+
         $chapterManager=new ChapterManager();
         $chapter=$chapterManager->getChapter($id);
         $commentManager=new CommentManager();
@@ -64,8 +68,9 @@ class ChaptersController
         require('view/backend/chaptersView.php');
     }
 
-    public function updateChapter($id) // make changes
+    public function updateChapter() // make changes
     {
+        $id=$_SESSION['arg'][1];
         $chapterManager=new ChapterManager();
         $chapter=$chapterManager->getChapter($id);
 
@@ -77,8 +82,9 @@ class ChaptersController
         }
     }
 
-    public function chapterModified($id) // save changes in the DB
+    public function chapterModified() // save changes in the DB
     {
+        $id=$_SESSION['arg'][1];
         $chapterManager=new ChapterManager();
         $chapter=$chapterManager->getChapter($id);
         $chapter->setNum($_POST['num']);
@@ -89,8 +95,9 @@ class ChaptersController
         header('Location: tableau-de-bord');
     }
 
-    public function deleteChapter($id)
+    public function deleteChapter()
     {
+        $id=$_SESSION['arg'][1];
         $chapterManager=new ChapterManager();
         $chapterManager->delete($id);
 

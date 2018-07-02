@@ -29,7 +29,7 @@ ob_start(); ?>
 <?php
     while($comment=$listComments->fetch())
     {
-    echo '<p>'.htmlspecialchars($comment['author']).' <a href="commentaire-signale-'.$comment['id'].'-'.$chapter->id().'">Signaler le commentaire</a><br>Posté le'.$comment['datepost_fr'].'<br>'.htmlspecialchars($comment['content']).'</p>';
+    echo '<p>'.htmlspecialchars($comment['author']).' <a href="commentaire-signale.'.$comment['id'].'">Signaler le commentaire</a><br>Posté le'.$comment['datepost_fr'].'<br>'.htmlspecialchars($comment['content']).'</p>';
     }
 ?>
 

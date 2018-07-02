@@ -36,6 +36,8 @@ class UsersController
     {
         session_destroy();
         unset($_SESSION);
+
+        header('Location: accueil');
     }
 
     public function getdashboard()
