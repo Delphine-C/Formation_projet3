@@ -67,7 +67,7 @@ class CommentsController
         $commentManager=new CommentManager();
         $commentManager->validComment($id);
 
-        moderate();
+        $this->moderate();
     }
 
     public function deleteComment($id)
@@ -75,6 +75,6 @@ class CommentsController
         $commentManager=new CommentManager();
         $commentManager->deleteComment($id);
 
-        moderate();
+        $this->moderate();
     }
 }
