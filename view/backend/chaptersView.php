@@ -16,7 +16,7 @@ ob_start(); ?>
 <?php
 while($chapter=$listChapters->fetch())
 {
-    echo '<tr><td>Chapitre n° '. $chapter['num'] .' - '. $chapter['title'] .'</td><td><a href="index?updateChapter=' . $chapter['id'] . '">Modifier ce chapitre</a> ou <a href="index?deleteChapter=' . $chapter['id'] . '">Supprimer ce chapitre</a></td></tr>';
+    echo '<tr><td>Chapitre n° '. $chapter['num'] .' - '. $chapter['title'] .'</td><td><a href="index.php?updateChapter=' . $chapter['id'] . '">Modifier ce chapitre</a> ou <a href="index.php?deleteChapter=' . $chapter['id'] . '">Supprimer ce chapitre</a></td></tr>';
 }
 ?>
 </table>

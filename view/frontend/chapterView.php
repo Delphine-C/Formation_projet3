@@ -16,10 +16,15 @@ $siteKey = '6Lf1aGAUAAAAAAc6Md8lde8nRRWQFYCyOlzKrhZw'; // votre clé publique
 
 
 ob_start(); ?>
+<header>
+    <h2>Chapitre <?= $chapter->num() ?></h2>
+    <h2><?= $chapter->title() ?></h2>
+</header>
 
-    <h1>Chapitre <?= $chapter->num() ?></h1>
-    <h2><?= $chapter->title() ?></h2><br>
-    <p><?= $chapter->content() ?></p>
+<section id="chapter">
+    <?= $chapter->content() ?>
+</section>
+
 
 <?php
     while($comment=$listComments->fetch())
