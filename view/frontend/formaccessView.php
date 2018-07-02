@@ -14,7 +14,7 @@ ob_start(); ?>
     </header>
 
     <div class="container">
-        <form action="index.php?testConnexion" method="post" class="col-lg-4 col-lg-push-4">
+        <form action="connexion" method="post" class="col-lg-4 col-lg-push-4">
             Utilisateur <input type="text" name="username" class="form-control"><br>
             Mot de passe <input type="password" name="password" class="form-control"><br>
             <input type="submit" value="Connexion">

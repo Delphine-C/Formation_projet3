@@ -59,7 +59,7 @@ function passwordModified($password)
     $userManager=new UserManager();
     $userManager->changePassword($password);
 
-    header('Location: index.php?dashboard');
+    header('Location: tableau-de-bord');
 }
 
 function contact()

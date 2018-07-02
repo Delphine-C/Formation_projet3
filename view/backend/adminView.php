@@ -21,8 +21,8 @@ else{
 <section>
         <div class="jumbotron">
             <h3>Gestion des chapitres</h3>
-            <a href="index.php?addChapter">Rédiger un nouveau chapitre</a><br>
-            <a href="index.php?modifyChapter">Modifier ou Supprimer un chapitre existant</a><br>
+            <a href="rediger-un-chapitre">Rédiger un nouveau chapitre</a><br>
+            <a href="modifier-un-chapitre">Modifier ou Supprimer un chapitre existant</a><br>
         </div>
 
         <div class="jumbotron">
@@ -36,12 +36,12 @@ else{
                 ?><span class="badge"><?php echo $count;
             }
             ?>
-            </span> commentaire(s) signalé(s). <a href="index.php?moderate">Modérer les commentaires</a>
+            </span> commentaire(s) signalé(s). <a href="moderer-les-commentaires">Modérer les commentaires</a>
         </div>
 
         <div class="jumbotron">
             <h3>Gestion du compte</h3>
-            <a href="index.php?changepw">Modifier mon mot de passe</a>
+            <a href="changer-mot-de-passe">Modifier mon mot de passe</a>
         </div>
 </section>
 <?php

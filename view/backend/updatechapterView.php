@@ -20,7 +20,7 @@ $title='Modifier un chapitre';
 
 ob_start(); ?>
 
-    <form action="index.php?chaptermodified=<?= $chapter->id() ?>" method="post">
+    <form action="chapitre-modifie-<?= $chapter->id() ?>" method="post">
         <label>Numéro de chapitre</label><input type="text" name="num" value="<?= $chapter->num() ?>"><br>
         <label>Titre du chapitre</label><input type="text" name="title" value="<?= $chapter->title() ?>"><br>
         <label>Votre chapitre<br></label><textarea name="chapter" class="onlyarea"><?= $chapter->content() ?></textarea><br>

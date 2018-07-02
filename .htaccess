@@ -1,0 +1,99 @@
+#--------------------------------------------------
+# Repository : 
+#--------------------------------------------------
+
+# The server must follow symbolic links:
+Options +FollowSymlinks
+
+# Enabling the URL Rewrite Module :
+RewriteEngine on
+
+#--------------------------------------------------
+# URL rewrite rules :
+#--------------------------------------------------
+
+#----------
+# CHAPTERS
+#----------
+
+# read a chapter
+RewriteRule ^chapitre-([0-9]+)$ index.php?chapter=$1 [L]
+
+# list all chapters
+RewriteRule ^chapitres$ index.php?chapters [L]
+
+# write a new chapter
+RewriteRule ^rediger-un-chapitre$ index.php?addChapter
+
+# save a new chapter
+RewriteRule ^nouveau-chapitre-enregistre$ index.php?newChapter
+
+# modify a chapter
+RewriteRule ^modifier-un-chapitre$ index.php?modifyChapter
+
+# write a chapter update
+RewriteRule ^modifier-le-chapitre-([0-9]+)$ index.php?updateChapter=$1
+
+# save chapter update
+RewriteRule ^chapitre-modifie-([0-9]+)$ index.php?chaptermodified=$1
+
+# delete a chapter
+RewriteRule ^supprimer-chapitre-([0-9]+)$ index.php?deleteChapter=$1
+
+#----------
+# COMMENTS
+#----------
+
+# add a new comment
+RewriteRule ^nouveau-commentaire-([0-9]+)$ index.php?newcomment=$1 [L]
+
+# report a comment
+RewriteRule ^commentaire-signale-([0-9]+)-([0-9]+)$ index.php?report=$1&numchapter=$2 [L]
+
+# moderate all comments
+RewriteRule ^moderer-les-commentaires$ index.php?moderate
+
+# valid a comment
+RewriteRule ^commentaire-valide-([0-9]+)$ index.php?validcomment=$1
+
+# delete a comment
+RewriteRule ^commentaire-supprime-([0-9]+)$ index.php?deletecomment=$1
+
+#------
+# USER
+#------
+
+# write a new password
+RewriteRule ^changer-mot-de-passe$ index.php?changepw
+
+# save a new password
+RewriteRule ^mot-de-passe-modifie$ index.php?pwsubmitted
+
+#-----------
+# CONNEXION
+#-----------
+
+# log in
+RewriteRule ^se-connecter$ index.php?getConnexion
+
+# test a user connexion
+RewriteRule ^connexion$ index.php?testConnexion
+
+# user deconnexion
+RewriteRule ^deconnexion$ index.php?deconnexion
+
+#-------
+# PAGES
+#-------
+
+# home
+RewriteRule ^accueil$ index.php [L]
+
+# page about
+RewriteRule ^a-propos$ index.php?about [L]
+
+# page contact
+RewriteRule ^contact$ index.php?contact [L]
+
+# dashboard access
+RewriteRule ^tableau-de-bord$ index.php?dashboard

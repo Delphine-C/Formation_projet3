@@ -51,7 +51,7 @@ function writeChapter()
     $chapterManager=new ChapterManager($chapter);
     $chapterManager->add($chapter);
 
-    header('Location: index.php?dashboard');
+    header('Location: tableau-de-bord');
 }
 
 function modifyChapter() // choose the chapter to modify or delete
@@ -84,7 +84,7 @@ function chapterModified($id) // save changes in the DB
     $chapter->setContent($_POST['chapter']);
     $chapterManager->update($chapter);
 
-    header('Location: index.php?dashboard');
+    header('Location: tableau-de-bord');
 }
 
 function deleteChapter($id)
@@ -92,5 +92,5 @@ function deleteChapter($id)
     $chapterManager=new ChapterManager();
     $chapterManager->delete($id);
 
-    header('Location: index.php?dashboard');;
+    header('Location: tableau-de-bord');;
 }

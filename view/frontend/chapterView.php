@@ -29,12 +29,12 @@ ob_start(); ?>
 <?php
     while($comment=$listComments->fetch())
     {
-    echo '<p>'.htmlspecialchars($comment['author']).' <a href="index.php?report='.$comment['id'].'&amp;numchapter='.$chapter->id().'">Signaler le commentaire</a><br>Posté le'.$comment['datepost_fr'].'<br>'.htmlspecialchars($comment['content']).'</p>';
+    echo '<p>'.htmlspecialchars($comment['author']).' <a href="commentaire-signale-'.$comment['id'].'-'.$chapter->id().'">Signaler le commentaire</a><br>Posté le'.$comment['datepost_fr'].'<br>'.htmlspecialchars($comment['content']).'</p>';
     }
 ?>
 
     <h2>Laisser un commentaire</h2>
-    <form action="index.php?newcomment=<?= $chapter->id() ?>" method="post">
+    <form action="nouveau-commentaire-<?= $chapter->id() ?>" method="post">
         <label>Pseudo :</label><input type="text" name="pseudo" placeholder="15 caractères max."><br>
         <label>Votre commentaire</label><br>
         <textarea name="content"></textarea><br><br>
@@ -42,7 +42,7 @@ ob_start(); ?>
         <input type="submit" value="Publier">
     </form>
 
-    <a href="index.php">Revenir à la liste des chapitres</a>
+    <a href="accueil">Revenir à la liste des chapitres</a>
 
 <?
 $content=ob_get_clean();

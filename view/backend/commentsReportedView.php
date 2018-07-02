@@ -21,7 +21,7 @@ if($countreported>0)
 <?php
     while($comment=$reported->fetch())
     {
-        echo '<tr><td>Posté par '.htmlspecialchars($comment['author']).' le '.$comment['datepost_fr'].' : "'.htmlspecialchars($comment['content']).'"</td><td><a href="index.php?validcomment='.$comment['id'].'">Accepter ce commentaire</a> | <a href="index.php?deletecomment='.$comment['id'].'">Supprimer ce commentaire</a></td></tr>';
+        echo '<tr><td>Posté par '.htmlspecialchars($comment['author']).' le '.$comment['datepost_fr'].' : "'.htmlspecialchars($comment['content']).'"</td><td><a href="commentaire-valide-'.$comment['id'].'">Accepter ce commentaire</a> | <a href="commentaire-supprime-'.$comment['id'].'">Supprimer ce commentaire</a></td></tr>';
     }
 ?>
     </table>
@@ -40,7 +40,7 @@ if($countunreported>0)
 <?php
     while($comment=$unreported->fetch())
     {
-        echo '<tr><td>Posté par '.htmlspecialchars($comment['author']).' le '.$comment['datepost_fr'].' : "'.htmlspecialchars($comment['content']).'"</td><td><a href="index.php?deletecomment='.$comment['id'].'">Supprimer ce commentaire</a></td></tr>';
+        echo '<tr><td>Posté par '.htmlspecialchars($comment['author']).' le '.$comment['datepost_fr'].' : "'.htmlspecialchars($comment['content']).'"</td><td><a href="commentaire-supprime-'.$comment['id'].'">Supprimer ce commentaire</a></td></tr>';
     }
 ?>
     </table>
