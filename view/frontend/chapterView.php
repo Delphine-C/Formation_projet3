@@ -10,7 +10,7 @@
         <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
 <?php
-$title='Chapitre';
+$title='Chapitre '.$chapter->num().' - '.$chapter->title().'';
 
 $siteKey = '6Lf1aGAUAAAAAAc6Md8lde8nRRWQFYCyOlzKrhZw'; // votre clé publique
 
@@ -21,29 +21,36 @@ ob_start(); ?>
     <h2><?= $chapter->title() ?></h2>
 </header>
 
-<section id="chapter">
-    <?= $chapter->content() ?>
-</section>
+<div id="one-chapter">
+    <section id="chapter">
+        <?= $chapter->content() ?>
+    </section>
 
-
-<?php
-    while($comment=$listComments->fetch())
-    {
-    echo '<p>'.htmlspecialchars($comment['author']).' <a href="commentaire-signale.'.$comment['id'].'">Signaler le commentaire</a><br>Posté le'.$comment['datepost_fr'].'<br>'.htmlspecialchars($comment['content']).'</p>';
-    }
-?>
-
-    <h2>Laisser un commentaire</h2>
-    <form action="nouveau-commentaire-<?= $chapter->id() ?>" method="post">
-        <label>Pseudo :</label><input type="text" name="pseudo" placeholder="15 caractères max."><br>
-        <label>Votre commentaire</label><br>
-        <textarea name="content"></textarea><br><br>
-        <div class="g-recaptcha" data-sitekey="<?= $siteKey; ?>"></div><br>
-        <input type="submit" value="Publier">
-    </form>
-
-    <a href="accueil">Revenir à la liste des chapitres</a>
-
+    <section>
+        <h2 class="com">Commentaires</h2><br>
+    <?php
+    if(!empty($listComments->fetch()))
+        {
+            while($comment=$listComments->fetch())
+            {
+                echo '<p><strong>'.htmlspecialchars($comment['author']).'</strong> <a href="commentaire-signale.'.$comment['id'].'">Signaler le commentaire</a><br>Posté le '.$comment['datepost_fr'].'<br>'.htmlspecialchars($comment['content']).'</p>';
+            }
+        }
+        else{
+            echo 'Aucun commentaire pour l\'instant. Soyez le premier à laisser un commentaire !';
+        }
+    ?>
+<br>
+        <h2 class="com">Laisser un commentaire</h2><br>
+        <form action="nouveau-commentaire.<?= $chapter->id() ?>" method="post" class="form-comment">
+            <label>Pseudo </label><input type="text" name="pseudo" placeholder="15 caractères max." class="form-control"><br>
+            <label>Votre commentaire</label><br>
+            <textarea name="content" class="form-control"></textarea><br><br>
+            <div class="g-recaptcha" data-sitekey="<?= $siteKey; ?>"></div><br>
+            <input type="submit" value="Publier">
+        </form>
+    </section>
+</div>
 <?
 $content=ob_get_clean();
 require('view/template.php');

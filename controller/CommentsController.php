@@ -11,7 +11,7 @@ require_once ('controller/ChaptersController.php');
 
 class CommentsController
 {
-    public function addComment($id)
+    public function addComment()
     {
             // Test recaptcha
         $secret = '6Lf1aGAUAAAAAAOeINC1KCntr_yyOcYqFyM1eWPl'; // votre clé privée
@@ -26,6 +26,7 @@ class CommentsController
         $decode = json_decode(file_get_contents($api_url), true);
 
         if ($decode['success'] == true) {
+            $id=$_SESSION['arg'][1];
             $comment=new Comment(['chapterid'=>$id,'author'=>$_POST['pseudo'],'content'=>$_POST['content']]);
             $commentManager=new CommentManager();
             $commentManager->addComment($comment);
@@ -38,7 +39,7 @@ class CommentsController
             throw new Exception('Aucun identifiant de chapitre envoyé');
             }
             else{
-                require ('view/frontend/chapterView.php');
+                header('Location: chapitre.'.$chapter->id().'');
             }
         }
         else {
