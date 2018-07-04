@@ -9,17 +9,21 @@ require_once ('PDO_Manager.php');
 
 class UserManager extends PDO_Manager
 {
-
+    const FAIL=1;
+    const SUCCESS=2;
 
     public function passwordisgood(User $user)
     {
-
         $db=parent::dbConnect();
-        $request=$db->prepare('SELECT * FROM users WHERE username=:username AND password=:password');
-        $request->execute(['username'=>$user->username(),':password'=>$user->password()]);
+        $request=$db->prepare('SELECT * FROM users WHERE username=:username');
+        $request->execute(['username'=>$user->username()]);
 
-        $donnees=$request->fetch(PDO::FETCH_ASSOC);
-        return new User($donnees);
+        if(password_verify($user->password(),$request->fetch(PDO::FETCH_ASSOC)['password'])){
+            return self::SUCCESS;
+        }
+        else{
+            return self::FAIL;
+        }
     }
 
     public function changePassword($password)

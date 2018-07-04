@@ -19,8 +19,7 @@ class UsersController
     {
         $user=new User(['username'=>$_POST['username'],'password'=>$_POST['password']]);
         $userManager=new UserManager();
-        $testuser=$userManager->passwordisgood($user);
-        $testpassword=$testuser->passwordisgood();
+        $testpassword=$userManager->passwordisgood($user);
 
         if(isset($testpassword) && $testpassword==2){
             $commentManager=new CommentManager();
@@ -58,10 +57,10 @@ class UsersController
         require ('view/backend/formpasswordView.php');
     }
 
-    public function passwordModified($password)
+    public function passwordModified()
     {
         $userManager=new UserManager();
-        $userManager->changePassword($password);
+        $userManager->changePassword($_POST['password']);
 
         header('Location: tableau-de-bord');
     }

@@ -13,19 +13,6 @@ class User extends Hydrator
     private $_username;
     private $_password;
 
-    const FAIL=1;
-    const SUCCESS=2;
-
-    public function passwordisgood()
-    {
-        if(empty($this->_username)){
-            return self::FAIL;
-        }
-        else{
-            return self::SUCCESS;
-        }
-    }
-
     // GETTERS
 
     /**
