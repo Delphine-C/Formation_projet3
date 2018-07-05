@@ -69,6 +69,21 @@ class UsersController
     {
         require ('view/frontend/contact.php');
     }
+
+    public function sendEmail()
+    {
+        $to='corneil.delphine@gmail.com';
+        $subject=$_POST['title'];
+        $message=$_POST['message'];
+        $headers='De la part de : '.$_POST['firstname'].' '.$_POST['name'].' <'.$_POST['mail'].'>';
+
+        if(mail($to,$subject,$message,$headers)){
+            require ('view/frontend/contact.php');
+        }
+        else{
+            echo 'Le mail n\'a pu être envoyé. Veuillez réessayer.';
+        }
+    }
 }
 
 

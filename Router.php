@@ -35,6 +35,7 @@ class Router
         'connexion'=>['controller'=>'UsersController','method'=>'testConnect'],
         'deconnexion'=>['controller'=>'UsersController','method'=>'deconnect'],
         'contact'=>['controller'=>'UsersController','method'=>'contact'],
+        'envoi-mail'=>['controller'=>'UsersController','method'=>'sendEmail'],
         'a-propos'=>['controller'=>'PagesController','method'=>'about'],
     ];
 

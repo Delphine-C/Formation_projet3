@@ -36,7 +36,7 @@ else{
                 ?><span class="badge"><?php echo $count;
             }
             ?>
-            </span> commentaire(s) signalé(s). <a href="moderer-les-commentaires">Modérer les commentaires</a>
+            </span> commentaire(s) signalé(s).<br><a href="moderer-les-commentaires">Modérer les commentaires</a>
         </div>
 
         <div class="jumbotron">
