@@ -14,12 +14,12 @@ ob_start(); ?>
 
 <div class="container">
     <form action="envoi-mail" method="post" class="col-lg-6 col-lg-push-3">
-        Nom <input type="text" name="name" class="form-control"><br>
-        Prénom <input type="text" name="firstname" class="form-control"><br>
-        Mail <input type="text" name="mail" class="form-control"><br>
-        Objet <input type="text" name="title" class="form-control"><br>
+        Nom <input type="text" name="name" class="form-control" required><br>
+        Prénom <input type="text" name="firstname" class="form-control" required><br>
+        Mail <input type="text" name="mail" class="form-control" required><br>
+        Objet <input type="text" name="title" class="form-control" required><br>
         <label>Votre message</label><br>
-        <textarea name="message" cols="50" rows="5" class="form-control"></textarea><br><br>
+        <textarea name="message" cols="50" rows="5" class="form-control" required></textarea><br><br>
         <input type="submit" value="Envoyer">
     </form>
 </div>

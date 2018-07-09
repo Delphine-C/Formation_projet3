@@ -51,9 +51,9 @@ ob_start(); ?>
 <br>
         <h2 class="com">Laisser un commentaire</h2><br>
         <form action="nouveau-commentaire.<?= $chapter->id() ?>" method="post" class="form-comment">
-            <label>Pseudo </label><input type="text" name="pseudo" placeholder="15 caractères max." class="form-control"><br>
+            <label>Pseudo </label><input type="text" name="pseudo" placeholder="15 caractères max." class="form-control" required><br>
             <label>Votre commentaire</label><br>
-            <textarea name="content" class="form-control"></textarea><br><br>
+            <textarea name="content" class="form-control" required></textarea><br><br>
             <div class="g-recaptcha" data-sitekey="<?= $siteKey; ?>"></div><br>
             <input type="submit" value="Publier">
         </form>
