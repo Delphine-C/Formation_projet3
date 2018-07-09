@@ -28,7 +28,7 @@ if($countreported>0)
 <?php
 }
 else{
-    echo 'Aucun commentaires signalés.';
+    echo '<p class="moderate">Aucun commentaires signalés.</p>';
 }
 ?>
 
@@ -47,7 +47,7 @@ if($countunreported>0)
 <?php
 }
 else{
-    echo 'Aucun commentaires.';
+    echo '<p class="moderate">Aucun commentaires.</p>';
 }
 
 $content=ob_get_clean();

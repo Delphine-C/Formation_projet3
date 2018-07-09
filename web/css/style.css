@@ -324,6 +324,7 @@
 	#skel-panels-defaultWrapper{height: 0%!important}
 	h2.com{font-size:1.5em}
 	body{min-height: 100vh}
+	p.moderate {font-size: inherit;margin-bottom: auto}
 /*********************************************************************************/
 /* Footer                                                                        */
 /*********************************************************************************/
