@@ -22,7 +22,8 @@ ob_start(); ?>
 
     <form action="chapitre-modifie.<?= $chapter->id() ?>" method="post" class="form-admin">
         <label>Numéro de chapitre</label> <input type="text" name="num" class="form-control" value="<?= $chapter->num() ?>"><br>
-        <label>Titre du chapitre</label> <textarea name="chapter" class="onlyarea form-control"><?= $chapter->content() ?></textarea><br>
+        <label>Titre du chapitre</label><input type="text" name="title" class="form-control" value="<?= $chapter->title() ?>"><br>
+        <label>Votre chapitre</label><textarea name="chapter" class="onlyarea form-control"><?= $chapter->content() ?></textarea><br>
         <input type="submit" value="Modifier">
     </form>
 
