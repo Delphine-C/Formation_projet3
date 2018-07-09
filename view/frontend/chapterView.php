@@ -29,24 +29,24 @@ ob_start(); ?>
     <section>
         <h2 class="com">Commentaires</h2><br>
     <?php
-    $content=[];
-    while ($comment=$listComments->fetch())
-    {
-        $content[]=$comment['id'];
-        ?>
-        <p>
-            <strong><?= htmlspecialchars($comment['author']) ?></strong> <a href="commentaire-signale.<?= $comment['id'] ?>">Signaler le commentaire</a>
-            <br>
-            Posté le <?= $comment['datepost_fr'] ?>
-            <br>
-            <?= htmlspecialchars($comment['content']) ?>
-        </p>
-        <?php
+    if($listComments->rowcount() == 0){
+        echo 'Aucun commentaire pour l\'instant. Soyez le premier à laisser un commentaire !<br>';
     }
-    if($content==NULL)
-    {
-    echo 'Aucun commentaire pour l\'instant. Soyez le premier à laisser un commentaire !<br>';
-    }
+    else{
+            while ($comment=$listComments->fetch())
+            {
+                $content[]=$comment['id'];
+                ?>
+                <p>
+                    <strong><?= htmlspecialchars($comment['author']) ?></strong> <a href="commentaire-signale.<?= $comment['id'] ?>">Signaler le commentaire</a>
+                    <br>
+                    Posté le <?= $comment['datepost_fr'] ?>
+                    <br>
+                    <?= htmlspecialchars($comment['content']) ?>
+                </p>
+                <?php
+            }
+        }
     ?>
 <br>
         <h2 class="com">Laisser un commentaire</h2><br>
