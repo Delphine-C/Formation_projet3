@@ -280,4 +280,12 @@
 	#footer h2
 	{
 	}
-	
+
+	#logo span{color: black!important;}
+
+	@media (min-width:700px) {
+		a.button, .full img {width:50%;margin: auto;}
+		#logo >h1 >a {font-size: 3em;}
+		#header{ padding:  4em 0em 2em 0em;}
+		.form-control{width: 50%;margin: auto;}
+	}

@@ -323,6 +323,7 @@
 	#one-chapter {width:90%;margin: auto;text-align: justify;}
 	#skel-panels-defaultWrapper{height: 0%!important}
 	h2.com{font-size:1.5em}
+	body{min-height: 100vh}
 /*********************************************************************************/
 /* Footer                                                                        */
 /*********************************************************************************/

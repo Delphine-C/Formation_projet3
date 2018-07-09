@@ -13,7 +13,7 @@ skel.init({
 	},
 	breakpoints: {
 		'mobile': {
-			range: '-480',
+			range: '-976',
 			lockViewport: true,
 			containers: 'fluid',
 			grid: {
@@ -22,11 +22,11 @@ skel.init({
 			}
 		},
 		'desktop': {
-			range: '481-',
+			range: '977-',
 			containers: 1200
 		},
 		'1000px': {
-			range: '481-1200',
+			range: '977-1200',
 			containers: 960
 		}
 	}
